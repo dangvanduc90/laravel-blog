@@ -16,3 +16,8 @@ Auth::routes();
 Route::get('/', 'HomeController@index')->name('home');
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('//photos', 'PhotoController@index');
+Route::post('/photos', 'PhotoController@store')->middleware(\App\Http\Middleware\CheckAge::class)->name('post.photos');
+
+//Route::resource('photos', 'PhotoController');
