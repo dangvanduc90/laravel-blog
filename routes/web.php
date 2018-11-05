@@ -11,7 +11,7 @@
 |
 */
 
-Auth::routes();
+Auth::routes(['verify' => true]);
 
 Route::get('/', 'HomeController@index')->name('home');
 
@@ -21,3 +21,7 @@ Route::get('//photos', 'PhotoController@index');
 Route::post('/photos', 'PhotoController@store')->middleware(\App\Http\Middleware\CheckAge::class)->name('post.photos');
 
 //Route::resource('photos', 'PhotoController');
+
+Route::get('profile', function () {
+    return 'profile';
+})->middleware('verified');
