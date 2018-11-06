@@ -27,3 +27,9 @@ Route::post('/photos', 'PhotoController@store')->middleware(\App\Http\Middleware
 Route::get('profile', function () {
     return 'profile';
 })->middleware('verified');
+
+// gọi ra trang view demo-pusher.blade.php
+Route::get('demo-pusher', 'BroadCastController@getPusher');
+
+// Truyển message lên server Pusher
+Route::get('fire-event', 'BroadCastController@fireEvent');
