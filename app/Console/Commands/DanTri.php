@@ -16,19 +16,12 @@ class DanTri extends Command
     protected $signature = 'dantri';
     protected $description = 'Mô tả code lấy bài đăng từ Dân trí';
 
-    public function __construct()
-    {
-        parent::__construct();
-    }
-
     /**
-     * Execute the console command.
      *
-     * @return mixed
      */
     public function handle()
     {
-        \Log::info("I was here Dân trí: " . Carbon::now());
-        return "Code lấy bài đăng từ Dân trí";
+        \Log::info("I was Dân trí: " . Carbon::now());
+        $this->info("I was Dân trí");
     }
 }
