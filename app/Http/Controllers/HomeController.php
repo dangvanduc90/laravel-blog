@@ -2,7 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use App\Events\OrderShipped;
+use App\User;
 
 class HomeController extends Controller
 {
@@ -18,5 +19,16 @@ class HomeController extends Controller
     public function index()
     {
         return view('home');
+    }
+
+    /**
+     *
+     */
+    public function ship()
+    {
+        $user = User::findOrFail(13);
+
+        // dispatch User event
+        event(new OrderShipped($user));
     }
 }

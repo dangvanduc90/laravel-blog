@@ -34,10 +34,13 @@ Route::get('demo-pusher', 'BroadCastController@getPusher');
 // Truyển message lên server Pusher
 Route::get('fire-event', 'BroadCastController@fireEvent');
 
-
+// commands
 Route::get('/commands', function () {
     Artisan::call('ninegag', [
         'user' => 'dangvanduc90',
         '--queue' => 'default queue'
     ]);
 });
+
+// event
+Route::get('/events', 'HomeController@ship');
