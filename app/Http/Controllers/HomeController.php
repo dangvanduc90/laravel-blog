@@ -76,8 +76,18 @@ class HomeController extends Controller
         $email = $users->map(function ($user) {
             return $user->email;
         });
+
         dd($users->min(function ($user) {
             return $user->id;
         }));
+    }
+    public function mutators()
+    {
+        $user = User::find(13);
+
+        $user->first_name = 'Sally';
+        $firstName = $user->first_name;
+
+        dd($firstName);
     }
 }
