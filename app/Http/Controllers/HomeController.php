@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Events\OrderShipped;
+use App\Flight;
 use App\Http\Resources\UserCollection;
 use App\User;
 use Illuminate\Http\Request;
