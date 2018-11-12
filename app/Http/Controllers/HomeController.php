@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Events\OrderShipped;
+use App\Http\Resources\UserCollection;
 use App\User;
 use Illuminate\Http\Request;
 use \Storage;
@@ -81,6 +82,7 @@ class HomeController extends Controller
             return $user->id;
         }));
     }
+
     public function mutators()
     {
         $user = User::find(13);
@@ -89,5 +91,12 @@ class HomeController extends Controller
         $firstName = $user->first_name;
 
         dd($firstName);
+    }
+
+    public function show($id)
+    {
+//        return UserCollection::collection(User::paginate()); // Pagination
+        return UserCollection::make(User::find($id)); // one record
+//        return UserCollection::collection(User::all()); // multiple record
     }
 }

@@ -56,3 +56,6 @@ Route::get('/collections', 'HomeController@collections');
 
 // Mutators
 Route::get('/mutators', 'HomeController@mutators');
+
+// API Resources
+Route::get('/products/{id}', 'HomeController@show');
