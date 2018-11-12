@@ -50,3 +50,6 @@ Route::get('/upload-file-storage', 'HomeController@uploadFileStorage');
 
 // File Storage
 Route::post('/file-storage', 'HomeController@fileStorage')->name('upload.file.storage');
+
+// event
+Route::get('/collections', 'HomeController@collections');

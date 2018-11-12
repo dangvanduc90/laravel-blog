@@ -61,4 +61,23 @@ class HomeController extends Controller
         $path = $file->store('avatars');
         dd($path);
     }
+
+    public function collections()
+    {
+        $users = User::all();
+
+        $names = $users->reject(function ($user) {
+            return $user->active === false;
+        })
+            ->map(function ($user) {
+                return $user->name;
+            });
+
+        $email = $users->map(function ($user) {
+            return $user->email;
+        });
+        dd($users->min(function ($user) {
+            return $user->id;
+        }));
+    }
 }
