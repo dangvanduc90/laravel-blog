@@ -104,7 +104,6 @@
         </div>
     <script>
         window.onload = () => {
-            console.log(window);
             window.toastr.success('Đăng nhập thành công!')
         }
     </script>
