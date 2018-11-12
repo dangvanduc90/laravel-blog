@@ -56,9 +56,9 @@ class HomeController extends Controller
 //        $files = Storage::files(); // all file with nest folder using allFiles method
 //        dd($files);
 
-//        // storage file upload
-//        $file = $request->file('avatar');
-//        $path = $file->store('avatars');
-//        dd($path);
+        // storage file upload
+        $file = $request->file('avatar');
+        $path = $file->store('avatars');
+        dd($path);
     }
 }
