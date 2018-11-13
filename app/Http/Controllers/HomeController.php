@@ -7,7 +7,6 @@ use App\Flight;
 use App\Http\Resources\UserCollection;
 use App\User;
 use Illuminate\Http\Request;
-use \Storage;
 
 class HomeController extends Controller
 {

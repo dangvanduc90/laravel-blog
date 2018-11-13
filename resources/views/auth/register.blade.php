@@ -62,13 +62,13 @@
                             </div>
                         </div>
 
-                        <div class="form-group row mb-0">
-                            <div class="col-md-6 offset-md-4">
-                                <!-- Google reCaptcha -->
-                                <div class="g-recaptcha" id="feedback-recaptcha" data-sitekey="{{ env('GOOGLE_RECAPTCHA_KEY')  }}"></div>
-                                <!-- End Google reCaptcha -->
-                            </div>
-                        </div>
+                        {{--<div class="form-group row mb-0">--}}
+                            {{--<div class="col-md-6 offset-md-4">--}}
+                                {{--<!-- Google reCaptcha -->--}}
+                                {{--<div class="g-recaptcha" id="feedback-recaptcha" data-sitekey="{{ env('GOOGLE_RECAPTCHA_KEY')  }}"></div>--}}
+                                {{--<!-- End Google reCaptcha -->--}}
+                            {{--</div>--}}
+                        {{--</div>--}}
 
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">

@@ -10697,6 +10697,11 @@ button.toast-close-button {
   }
 }
 
+.user-image {
+  width: 64px;
+  height: 64px;
+}
+
 .navbar-laravel {
   background-color: #fff;
   -webkit-box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);

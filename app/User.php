@@ -16,7 +16,7 @@ class User extends Authenticatable implements MustVerifyEmail
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'name', 'email', 'password', 'avatar'
     ];
 
     /**
@@ -28,12 +28,26 @@ class User extends Authenticatable implements MustVerifyEmail
         'password', 'remember_token',
     ];
 
+    protected $appends = [
+        'avatar_link',
+        'first_name'
+    ];
+
     // Defining An Accessor
-    public function getFirstNameAttribute($value)
+    public function getAvatarLinkAttribute()
     {
-        return ucfirst($value);
+        if ($this->attributes['avatar']) {
+            return 'upload/user/' . $this->attributes['user'] . '/avatar/' . $this->attributes['avatar'];
+        }
+        return \Avatar::create($this->attributes['name'])->toBase64();
     }
 
+    // Defining An Accessor
+    public function getFirstNameAttribute()
+    {
+        return ucfirst($this->attributes['name']);
+    }
+    // Defining A mutators
     public function setFirstNameAttribute($value)
     {
         $this->attributes['first_name'] = strtoupper($value);
