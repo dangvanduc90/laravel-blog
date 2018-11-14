@@ -97,7 +97,9 @@ class HomeController extends Controller
     public function show($id)
     {
         /* Relationships */
-        $phone = User::find($id)->phone; // One To One
+//        $phone = User::find($id)->phone; // One To One
+//        $phone = User::find($id)->flight; // One To Many
+        $phone = Flight::find($id)->user; // Inverse Of The Relationship One To Many
 //        $phone = Phone::find($id)->user; // Inverse Of The Relationship One To One
         return $phone;
 

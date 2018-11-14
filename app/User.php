@@ -57,4 +57,9 @@ class User extends Authenticatable implements MustVerifyEmail
     {
         return $this->hasOne('App\Phone');
     }
+
+    public function flight()
+    {
+        return $this->hasMany('App\Flight');
+    }
 }

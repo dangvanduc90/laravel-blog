@@ -14,7 +14,8 @@ class FlightsTableSeeder extends Seeder
         for ($i = 0; $i < 50; $i++) {
             DB::table('flights')->insert([
                 'name' => str_random(10),
-                'airline' => str_random(10)
+                'airline' => str_random(10),
+                'user_id' => rand(1, 50)
             ]);
         }
     }
