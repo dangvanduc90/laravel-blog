@@ -6,6 +6,7 @@ use App\Events\OrderShipped;
 use App\Flight;
 use App\Http\Resources\UserCollection;
 use App\Phone;
+use App\Role;
 use App\User;
 use Illuminate\Http\Request;
 
@@ -97,11 +98,13 @@ class HomeController extends Controller
     public function show($id)
     {
         /* Relationships */
-//        $phone = User::find($id)->phone; // One To One
-//        $phone = User::find($id)->flight; // One To Many
-        $phone = Flight::find($id)->user; // Inverse Of The Relationship One To Many
-//        $phone = Phone::find($id)->user; // Inverse Of The Relationship One To One
-        return $phone;
+//        $user = User::find($id)->phone; // One To One
+//        $user = User::find($id)->flight; // One To Many
+//        $user = Flight::find($id)->user; // Inverse Of The Relationship One To Many
+//        $user = Phone::find($id)->user; // Inverse Of The Relationship One To One
+//        $user = Role::find(1)->users; // Many To Many
+        $user = User::find(36)->roles; // Many To Many
+        return $user;
 
         /* Collections */
 //        return UserCollection::collection(User::paginate()); // Pagination
