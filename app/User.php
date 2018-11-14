@@ -52,4 +52,9 @@ class User extends Authenticatable implements MustVerifyEmail
     {
         $this->attributes['first_name'] = strtoupper($value);
     }
+
+    public function phone()
+    {
+        return $this->hasOne('App\Phone');
+    }
 }

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Events\OrderShipped;
 use App\Flight;
 use App\Http\Resources\UserCollection;
+use App\Phone;
 use App\User;
 use Illuminate\Http\Request;
 
@@ -95,6 +96,12 @@ class HomeController extends Controller
 
     public function show($id)
     {
+        /* Relationships */
+        $phone = User::find($id)->phone; // One To One
+//        $phone = Phone::find($id)->user; // Inverse Of The Relationship One To One
+        return $phone;
+
+        /* Collections */
 //        return UserCollection::collection(User::paginate()); // Pagination
         return UserCollection::make(User::find($id)); // one record
 //        return UserCollection::collection(User::all()); // multiple record
