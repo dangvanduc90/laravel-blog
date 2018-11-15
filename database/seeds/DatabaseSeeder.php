@@ -17,6 +17,10 @@ class DatabaseSeeder extends Seeder
              PhonesTableSeeder::class,
              RolesTableSeeder::class,
              RolesUsersTableSeeder::class,
+             CountriesTableSeeder::class,
+             PostsTableSeeder::class,
+             VideosTableSeeder::class,
+             CommentsTableSeeder::class,
          ]);
     }
 }

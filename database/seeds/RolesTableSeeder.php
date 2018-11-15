@@ -15,6 +15,7 @@ class RolesTableSeeder extends Seeder
             DB::table('roles')->insert([
                 'name' => str_random(),
                 'slug' => str_random(),
+                'user_id' => rand(1, 50),
                 'permission' => rand(1, 10)
             ]);
         }

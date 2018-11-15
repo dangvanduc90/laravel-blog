@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Country;
 use App\Events\OrderShipped;
 use App\Flight;
 use App\Http\Resources\UserCollection;
 use App\Phone;
+use App\Post;
 use App\Role;
 use App\User;
 use Illuminate\Http\Request;
@@ -103,7 +105,9 @@ class HomeController extends Controller
 //        $user = Flight::find($id)->user; // Inverse Of The Relationship One To Many
 //        $user = Phone::find($id)->user; // Inverse Of The Relationship One To One
 //        $user = Role::find(1)->users; // Many To Many
-        $user = User::find(36)->roles; // Many To Many
+//        $user = User::find(36)->roles; // Many To Many
+//        $user = Country::find(1)->posts; // Has Many Through
+        $user = Post::find(1)->comments; // Polymorphic Relations
         return $user;
 
         /* Collections */
