@@ -21,6 +21,8 @@ class DatabaseSeeder extends Seeder
              PostsTableSeeder::class,
              VideosTableSeeder::class,
              CommentsTableSeeder::class,
+             TaggablesTableSeeder::class,
+             TagsTableSeeder::class,
          ]);
     }
 }

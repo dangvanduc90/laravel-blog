@@ -63,6 +63,11 @@ class User extends Authenticatable implements MustVerifyEmail
         return $this->hasMany('App\Flight');
     }
 
+    public function posts()
+    {
+        return $this->hasMany('App\Post');
+    }
+
     public function roles()
     {
         return $this->belongsToMany(Role::class, 'role_users')

@@ -11,6 +11,7 @@ use App\Post;
 use App\Role;
 use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class HomeController extends Controller
 {
@@ -99,6 +100,7 @@ class HomeController extends Controller
 
     public function show($id)
     {
+//        DB::enableQueryLog();
         /* Relationships */
 //        $user = User::find($id)->phone; // One To One
 //        $user = User::find($id)->flight; // One To Many
@@ -107,7 +109,19 @@ class HomeController extends Controller
 //        $user = Role::find(1)->users; // Many To Many
 //        $user = User::find(36)->roles; // Many To Many
 //        $user = Country::find(1)->posts; // Has Many Through
-        $user = Post::find(1)->comments; // Polymorphic Relations
+//        $user = Post::find(1)->comments; // Polymorphic Relations
+//        $user = Post::find(1)->tags ; // Many To Many Polymorphic Relations
+//        $user = Post::whereHas('comments', function ($query) { // Querying Relationship Absence
+//            $query->where('body', 'like', '%W7W54crThsYdroDioMmWdsnniPrCjTVpN3Ho3VXbMyAAgeshzV%');
+//        })->get();
+//        $user = Post::withCount(['comments' => function ($query) {
+//            $query->where('body', '=', 'W7W54crThsYdroDioMmWdsnniPrCjTVpN3Ho3VXbMyAAgeshzV');
+//        }])->get(); // Counting Related Models
+//        $user = Post::with(['user'])->get(); // Eager Loading Multiple Relationships
+//        dd(DB::getQueryLog());
+        $user = User::with(['posts' => function ($query) {
+            $query->orderBy('created_at', 'desc');
+        }])->get();
         return $user;
 
         /* Collections */
