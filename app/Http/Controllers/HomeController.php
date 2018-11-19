@@ -145,10 +145,14 @@ class HomeController extends Controller
 //        $post->user()->associate($user);
 //        $post->save();
 
-        $user = User::find(2); // Attaching Many To Many Relationships
-        $roleId = 3;
-        $user->roles()->attach($roleId);
-        return $user;
+//        $user = User::find(2); // Attaching Many To Many Relationships
+//        $roleId = 3;
+//        $user->roles()->attach($roleId);
+
+        $comment = Comment::find(1);
+        $comment->body = 'Edit to this comment!';
+        $comment->save();
+        return $comment;
 
         /* Collections */
 //        return UserCollection::collection(User::paginate()); // Pagination
