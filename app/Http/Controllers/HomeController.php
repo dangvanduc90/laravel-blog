@@ -149,11 +149,12 @@ class HomeController extends Controller
 //        $roleId = 3;
 //        $user->roles()->attach($roleId);
 
+        User::find(1)->update(['name'=>'dangvanduc222 3']);
         $user = User::find(1);
 //        $comment->body = 'Edit to this comment!';
 //        $comment->save();
-        $user->name = 'dangvanduc90';
-        $user->save();
+//        $user->name = 'dangvanduc90';
+//        $user->save();
         return $user;
 
         /* Collections */

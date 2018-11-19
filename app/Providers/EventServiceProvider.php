@@ -23,6 +23,15 @@ class EventServiceProvider extends ServiceProvider
         'App\Events\OrderShipped' => [
             'App\Listeners\SendShipmentNotification',
         ],
+        'item.created' => [
+            'App\Events\ItemEvent@itemCreated',
+        ],
+        'item.updated' => [
+            'App\Events\ItemEvent@itemUpdated',
+        ],
+        'item.deleted' => [
+            'App\Events\ItemEvent@itemDeleted',
+        ]
     ];
 
     /**
