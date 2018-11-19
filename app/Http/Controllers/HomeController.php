@@ -149,10 +149,12 @@ class HomeController extends Controller
 //        $roleId = 3;
 //        $user->roles()->attach($roleId);
 
-        $comment = Comment::find(1);
-        $comment->body = 'Edit to this comment!';
-        $comment->save();
-        return $comment;
+        $user = User::find(1);
+//        $comment->body = 'Edit to this comment!';
+//        $comment->save();
+        $user->name = 'dangvanduc90';
+        $user->save();
+        return $user;
 
         /* Collections */
 //        return UserCollection::collection(User::paginate()); // Pagination

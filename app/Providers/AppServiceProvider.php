@@ -2,7 +2,9 @@
 
 namespace App\Providers;
 
+use App\User;
 use Illuminate\Http\Resources\Json\Resource;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\ServiceProvider;
 
@@ -17,6 +19,37 @@ class AppServiceProvider extends ServiceProvider
     {
         Schema::defaultStringLength(191);
 //        Resource::withoutWrapping(); // remove key "data" when using eloquent-resources
+        User::creating(function ($user) {
+            Log::info('event creating');
+        });
+
+        User::created(function ($user) {
+            Log::info('event created');
+        });
+
+        User::updating(function ($user) {
+            Log::info('event updating');
+        });
+
+        User::updated(function ($user) {
+            Log::info('event updated');
+        });
+
+        User::saving(function ($user) {
+            Log::info('event saving');
+        });
+
+        User::saved(function ($user) {
+            Log::info('event saved');
+        });
+
+        User::deleting(function ($user) {
+            Log::info('event deleting');
+        });
+
+        User::deleted(function ($user) {
+            Log::info('event deleted');
+        });
     }
 
     /**
