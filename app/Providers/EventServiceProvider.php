@@ -31,7 +31,10 @@ class EventServiceProvider extends ServiceProvider
         ],
         'item.deleted' => [
             'App\Events\ItemEvent@itemDeleted',
-        ]
+        ],
+        'Illuminate\Auth\Events\Login' => [
+            'App\Listeners\LogSuccessfulLogin',
+        ],
     ];
 
     /**
