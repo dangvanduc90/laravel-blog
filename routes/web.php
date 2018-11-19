@@ -59,3 +59,5 @@ Route::get('/mutators', 'HomeController@mutators');
 
 // API Resources
 Route::get('/products/{id}', 'HomeController@show');
+
+Route::get('blade', 'HomeController@blade');

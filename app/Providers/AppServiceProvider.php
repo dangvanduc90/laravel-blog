@@ -4,6 +4,7 @@ namespace App\Providers;
 
 use App\User;
 use Illuminate\Http\Resources\Json\Resource;
+use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\ServiceProvider;
@@ -50,6 +51,12 @@ class AppServiceProvider extends ServiceProvider
 //        User::deleted(function ($user) {
 //            Log::info('event deleted');
 //        });
+
+        Blade::component('components.alert', 'alert'); // Aliasing Components
+
+        Blade::if('env', function ($environment) {
+            return app()->environment($environment);
+        });
     }
 
     /**

@@ -162,4 +162,15 @@ class HomeController extends Controller
 //        return UserCollection::make(User::find($id)); // one record
 //        return UserCollection::collection(User::all()); // multiple record
     }
+
+    public function blade()
+    {
+        $user = User::find(1);
+        $array = [1, 2];
+        return view('child', [
+            'array' => $array,
+            'name' => 'dangvanduc90',
+            'user' => $user,
+        ]);
+    }
 }
