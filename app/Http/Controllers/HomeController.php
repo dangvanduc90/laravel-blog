@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Comment;
 use App\Country;
 use App\Events\OrderShipped;
 use App\Flight;
@@ -103,13 +104,21 @@ class HomeController extends Controller
 //        DB::enableQueryLog();
         /* Relationships */
 //        $user = User::find($id)->phone; // One To One
+
 //        $user = User::find($id)->flight; // One To Many
+
 //        $user = Flight::find($id)->user; // Inverse Of The Relationship One To Many
+
 //        $user = Phone::find($id)->user; // Inverse Of The Relationship One To One
+
 //        $user = Role::find(1)->users; // Many To Many
+
 //        $user = User::find(36)->roles; // Many To Many
+
 //        $user = Country::find(1)->posts; // Has Many Through
+
 //        $user = Post::find(1)->comments; // Polymorphic Relations
+
 //        $user = Post::find(1)->tags ; // Many To Many Polymorphic Relations
 //        $user = Post::whereHas('comments', function ($query) { // Querying Relationship Absence
 //            $query->where('body', 'like', '%W7W54crThsYdroDioMmWdsnniPrCjTVpN3Ho3VXbMyAAgeshzV%');
@@ -117,16 +126,33 @@ class HomeController extends Controller
 //        $user = Post::withCount(['comments' => function ($query) {
 //            $query->where('body', '=', 'W7W54crThsYdroDioMmWdsnniPrCjTVpN3Ho3VXbMyAAgeshzV');
 //        }])->get(); // Counting Related Models
+
 //        $user = Post::with(['user'])->get(); // Eager Loading Multiple Relationships
-//        dd(DB::getQueryLog());
-        $user = User::with(['posts' => function ($query) {
-            $query->orderBy('created_at', 'desc');
-        }])->get();
+//        $user = User::with(['posts' => function ($query) {
+//            $query->orderBy('created_at', 'desc');
+//        }])->get();
+
+//        $comment = new Comment([ // Inserting Related Models
+//            'body' => 'Proin eget tortor risus.',
+//            'commentable_id' => 1,
+//            'commentable_type' => 'App\Post',
+//        ]);
+//        $post = Post::find(1);
+//        $post->comments()->save($comment);
+
+//        $post = Post::find(4); // Update $post Belongs To Relationships
+//        $user = User::find(5);
+//        $post->user()->associate($user);
+//        $post->save();
+
+        $user = User::find(2); // Attaching Many To Many Relationships
+        $roleId = 3;
+        $user->roles()->attach($roleId);
         return $user;
 
         /* Collections */
 //        return UserCollection::collection(User::paginate()); // Pagination
-        return UserCollection::make(User::find($id)); // one record
+//        return UserCollection::make(User::find($id)); // one record
 //        return UserCollection::collection(User::all()); // multiple record
     }
 }

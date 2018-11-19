@@ -24,6 +24,9 @@ class Post extends Model
 
     public function user()
     {
-        return $this->belongsTo('App\User');
+        // Default Models if no user is attached to the post
+        return $this->belongsTo('App\User')->withDefault(function ($user) {
+            $user->name = 'Guest Author';
+        });
     }
 }
