@@ -12,7 +12,7 @@ use App\Post;
 use App\Role;
 use App\User;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\View;
 
 class HomeController extends Controller
 {
@@ -172,5 +172,21 @@ class HomeController extends Controller
             'name' => 'dangvanduc90',
             'user' => $user,
         ]);
+    }
+
+    public function views()
+    {
+        $user = User::find(1);
+        $array = [1, 2];
+        $data = [
+            'array' => $array,
+            'name' => 'dangvanduc90',
+            'user' => $user,
+        ];
+        if (View::exists('child')) {
+            return view('child', $data);
+        } else {
+            return "View not exist";
+        }
     }
 }

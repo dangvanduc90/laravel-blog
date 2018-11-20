@@ -18,6 +18,9 @@
 
 @section('content')
     <p>This is my body content.</p>
+    {{ $title }}
+    <br>
+    {{ '$count from App\Http\ViewComposers\ProfileComposer: ' . $count }}
     @auth
         <p>The user is authenticated...</p>
     @endauth
