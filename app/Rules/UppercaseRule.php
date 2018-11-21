@@ -25,7 +25,7 @@ class UppercaseRule implements Rule
      */
     public function passes($attribute, $value)
     {
-        return strtoupper($value) === $value;
+        return $value === $value;
     }
 
     /**
