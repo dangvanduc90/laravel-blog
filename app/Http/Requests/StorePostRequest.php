@@ -26,7 +26,9 @@ class StorePostRequest extends FormRequest
     {
         return [
             'title' => ['required', 'unique:posts' , 'max:10', new UppercaseRule()],
+            'file' => 'required|max:8192|mimetypes:video/*,image/*', // 8mb
             'body' => 'required',
+            'email' => 'required|email|unique:users,email',
             'author.name' => 'required',
             'author.description' => 'required',
         ];
@@ -36,9 +38,15 @@ class StorePostRequest extends FormRequest
     {
         return [
             'title.required' => 'Bắt buộc nhập :attribute',
-            'title.unique' => ':attribute đã bị trùng',
+            'title.unique' => ':attribute đã tồn tại',
             'title.max' => ':attribute chỉ được phép chứa tối đa :max',
+            'file.max' => ':attribute không được lớn hơn :max kilobytes.',
+            'file.mimetypes' => ':attribute chỉ chấp nhận định dạng ảnh hoặc video',
+            'file.required'  => 'Bắt buộc nhập :attribute',
             'body.required'  => 'Bắt buộc nhập :attribute',
+            'email.required'  => 'Bắt buộc nhập :attribute',
+            'email.email'  => ':attribute phải đúng định dạng email',
+            'email.unique'  => ':attribute đã tồn tại',
             'author.name.required'  => 'Bắt buộc nhập :attribute',
             'author.description.required'  => 'Bắt buộc nhập :attribute',
         ];
@@ -51,6 +59,7 @@ class StorePostRequest extends FormRequest
             'body' => 'Nội dung',
             'author.name' => 'Tên tác giả',
             'author.description' => 'Mô tả tác giả',
+            'file' => 'File',
         ];
     }
 }

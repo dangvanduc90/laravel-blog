@@ -6,7 +6,7 @@
             <div class="card">
                 <div class="card-header">{{ __('Register') }}</div>
                 <div class="card-body">
-                    <form method="POST" action="{{ action('PostController@store') }}">
+                    <form method="POST" action="{{ action('PostController@store') }}" enctype="multipart/form-data">
                         @csrf
 
                         <div class="form-group row">
@@ -38,6 +38,19 @@
                         </div>
 
                         <div class="form-group row">
+                            <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('email') }}</label>
+                            <div class="col-md-6">
+                                <input id="email" type="text" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ old('email') }}">
+
+                                @if ($errors->has('email'))
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $errors->first('email') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
                             <label for="author[name]" class="col-md-4 col-form-label text-md-right">{{ __('author[name]') }}</label>
                             <div class="col-md-6">
                                 <input id="author[name]" type="text" class="form-control{{ $errors->has('author.name') ? ' is-invalid' : '' }}" name="author[name]" value="{{ old('author.name') }}">
@@ -58,6 +71,19 @@
                                 @if ($errors->has('author.description'))
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $errors->first('author.description') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+                        <div class="form-group">
+                        </div>
+                        <div class="form-group row">
+                            <label for="file" class="col-md-4 col-form-label text-md-right">file input</label>
+                            <div class="col-md-6">
+                                <input id="file" type="file" class="form-control{{ $errors->has('file') ? ' is-invalid' : '' }}" name="file" value="{{ old('file') }}">
+                                @if ($errors->has('file'))
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $errors->first('file') }}</strong>
                                     </span>
                                 @endif
                             </div>

@@ -36,8 +36,25 @@ class PostController extends Controller
      */
     public function store(StorePostRequest $request)
     {
-        $validatedData = $request->validated();
-        dd($validatedData);
+//        $validatedData = $request->validated();
+//        var_dump($request->is('create-*'));
+
+        // Without Query String...
+//        $url = $request->url();
+
+        // With Query String...
+//        $url = $request->fullUrl();
+
+//        $author = $request->input('author.*');
+
+//        $input = $request->input();
+//        $input = $request->all();
+
+        $file = $request->file('file');
+        if ($file->isValid()) {
+            dd($file);
+        }
+        dd($file);
     }
 
     /**
