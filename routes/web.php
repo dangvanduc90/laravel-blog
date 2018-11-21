@@ -65,3 +65,7 @@ Route::get('blade', 'HomeController@blade');
 
 // Views
 Route::get('views', 'HomeController@views');
+
+// Validation
+Route::get('create-post', 'PostController@create');
+Route::post('create-post', 'PostController@store');
