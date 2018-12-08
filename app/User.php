@@ -17,7 +17,10 @@ class User extends Authenticatable implements MustVerifyEmail
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password', 'avatar'
+        'name',
+        'email',
+        'avatar',
+        'password',
     ];
 
     /**
@@ -37,9 +40,10 @@ class User extends Authenticatable implements MustVerifyEmail
     // Defining An Accessor
     public function getAvatarLinkAttribute()
     {
-        if ($this->attributes['avatar']) {
-            return 'upload/user/' . $this->attributes['user'] . '/avatar/' . $this->attributes['avatar'];
-        }
+//        \Log::info($this->attributes);
+//        if ($this->attributes['avatar']) {
+//            return 'upload/user/' . $this->attributes['user'] . '/avatar/' . $this->attributes['avatar'];
+//        }
         return \Avatar::create($this->attributes['name'])->toBase64();
     }
 

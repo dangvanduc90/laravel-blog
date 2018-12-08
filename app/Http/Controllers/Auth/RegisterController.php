@@ -70,6 +70,7 @@ class RegisterController extends Controller
         $user = User::create([
             'name' => $data['name'],
             'email' => $data['email'],
+            'avatar' => null,
             'password' => Hash::make($data['password']),
         ]);
         return $user;
@@ -78,7 +79,8 @@ class RegisterController extends Controller
     public function register(Request $request)
     {
         $this->validator($request->all())->validate();
-        event(new Registered($user = $this->create($request->all())));
+        $user = $this->create($request->all());
+        event(new Registered($user));
         $this->guard()->login($user);
         dispatch(new SendWelcomeEmail($user));
 
