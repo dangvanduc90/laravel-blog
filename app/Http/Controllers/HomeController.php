@@ -27,7 +27,8 @@ class HomeController extends Controller
 
     public function index()
     {
-        $users = User::popular()->active()->orderBy('created_at')->get();
+//        $users = User::popular()->active()->orderBy('created_at')->get();
+        $users = User::ofCountry(1)->get();
         dd($users);
         return view('home');
     }
