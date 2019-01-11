@@ -2,6 +2,7 @@
 
 namespace App;
 
+use App\Scopes\PostUserScope;
 use Illuminate\Database\Eloquent\Model;
 
 class Post extends Model
@@ -28,5 +29,11 @@ class Post extends Model
         return $this->belongsTo('App\User')->withDefault(function ($user) {
             $user->name = 'Guest Author';
         });
+    }
+
+    protected static function boot()
+    {
+        parent::boot();
+        static::addGlobalScope(new PostUserScope());
     }
 }
