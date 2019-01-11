@@ -10,10 +10,10 @@
 
 {{-- Passing Additional Data To Components, Aliasing Components --}}
 @alert(['foo' => 'bar'])
-    @slot('title')
-        Forbidden
-    @endslot
-    You are not allowed to access this resource!
+@slot('title')
+    Forbidden
+@endslot
+You are not allowed to access this resource!
 @endalert
 
 @section('content')
@@ -30,14 +30,20 @@
     @endguest
 
     @env('local')
-        <p>The application is in the local environment...</p>
+    <p>The application is in the local environment...</p>
     @elseenv('testing')
-        <p>The application is in the testing environment...</p>
+    <p>The application is in the testing environment...</p>
     @elseenv('production')
-        <p>The application is in the production environment...</p>
+    <p>The application is in the production environment...</p>
     @else
         <p>The application is not in the local, production or testing environment...</p>
-    @endenv
+        @endenv
+
+        @forelse($users as $user)
+            {!! '<br>' . $user->name !!}
+        @empty
+            No users found.
+        @endforelse
 @endsection
 
 @push('scripts')

@@ -169,11 +169,13 @@ class HomeController extends Controller
     public function blade()
     {
         $user = User::find(1);
+        $users = User::all();
         $array = [1, 2];
         return view('child', [
             'array' => $array,
             'name' => 'dangvanduc90',
             'user' => $user,
+            'users' => $users,
         ]);
     }
 
