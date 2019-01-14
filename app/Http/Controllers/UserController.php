@@ -15,5 +15,10 @@ class UserController extends Controller
     {
         $user = User::find(1);
         $user->notify(new NotificationUser($user));
+
+        foreach ($user->unreadNotifications as $notification) {
+            echo $notification->type . '<br>';
+        }
+        $user->unreadNotifications->markAsRead();
     }
 }
