@@ -4,6 +4,7 @@ namespace App\Console;
 
 use App\Console\Commands\DanTri;
 use App\Console\Commands\NineGag;
+use App\Console\Commands\SyncPlans;
 use Carbon\Carbon;
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
@@ -18,6 +19,7 @@ class Kernel extends ConsoleKernel
     protected $commands = [
 //        DanTri::class,
 //        NineGag::class
+        SyncPlans::class,
     ];
 
     /**

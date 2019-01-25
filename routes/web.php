@@ -71,3 +71,10 @@ Route::get('create-post', 'PostController@create');
 Route::post('create-post', 'PostController@store');
 
 Route::get('notification', 'UserController@notification');
+
+// Cashier
+Route::get('/plans', 'PlansController@index');
+
+Route::group(['middleware' => 'auth'], function () {
+    Route::get('/plan/{plan}', 'PlansController@show');
+});
