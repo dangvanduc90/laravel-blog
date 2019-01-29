@@ -80,3 +80,5 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/braintree/token', 'BraintreeTokenController@token');
     Route::post('/subscribe', 'SubscriptionsController@store');
 });
+
+Route::get('/nganluong', 'NganLuongController@index');
