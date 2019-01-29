@@ -82,3 +82,4 @@ Route::group(['middleware' => 'auth'], function () {
 });
 
 Route::get('/nganluong', 'NganLuongController@index');
+Route::get('/baokim', 'BaokimController@index');
