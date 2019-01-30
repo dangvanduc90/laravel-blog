@@ -83,6 +83,7 @@ Route::group(['middleware' => 'auth'], function () {
 
 Route::get('/nganluong', 'NganLuongController@index');
 Route::get('/baokim', 'BaokimController@index');
-Route::get('/paypal', 'PaypalController@index');
+Route::resource('/paypal', 'PaypalController');
+Route::post('/paypal/store', 'PaypalController@store');
 Route::get('/paypal/success', 'PaypalController@success');
 Route::get('/paypal/error', 'PaypalController@error');
